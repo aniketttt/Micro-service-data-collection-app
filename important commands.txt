@@ -1,0 +1,22 @@
+docker login registry-name
+
+docker tag your-image-name:your-tag registry-name/your-repository-name:your-tag
+
+docker push registry-name/your-repository-name:your-tag
+
+docker run -d -p 8000:5000 <conatiner name or ID>
+
+docker run -d -p 5432:5432 -name postgres -e POSTGRES_DB=form-db -e POSTGRES_PASSWORD=password -e POSTGRES_USER=user <conatiner name or ID>
+
+psql -d form-db -U admin -p 5432
+
+DROP TABLE IF EXISTS form_data;
+
+CREATE TABLE IF NOT EXISTS form_data (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    message VARCHAR(255) NOT NULL
+);

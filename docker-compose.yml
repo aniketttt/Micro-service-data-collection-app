@@ -1,0 +1,22 @@
+version: "3"
+services:
+  app:
+    image: aniket0808/my-form-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    networks:
+      - mynetwork
+
+  postgres:
+    image: postgres:alpine
+    environment:
+      POSTGRES_DB: form-db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

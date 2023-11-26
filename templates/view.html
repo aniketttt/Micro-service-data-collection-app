@@ -1,0 +1,34 @@
+<!-- templates/view.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='view-styles.css') }}">
+    <title>View Data</title>
+</head>
+<body>
+    <h1>View Data</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Message</th>
+        </tr>
+        {% for form_data in form_data_list %}
+            <tr>
+                <td>{{ form_data.id }}</td>
+                <td>{{ form_data.name }}</td>
+                <td>{{ form_data.email }}</td>
+                <td>{{ form_data.phone }}</td>
+                <td>{{ form_data.address }}</td>
+                <td>{{ form_data.message }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
